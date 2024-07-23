@@ -1,0 +1,86 @@
+Political Merch
+🇺🇸
+🚨New Release. Limited Items 🚨
+
+XS S M L XL
+Buy Now Items Left: 10/100
+Recent Releases 👇🏻
+
+Join Our Community
+FAQs
+How long does shipping take? +
+We typically process and ship orders within 1-3 business days. Delivery times vary depending on your location, but usually take 3-5 business days after shipping.
+What is your return policy? +
+We offer a 30-day return policy for unworn, unwashed items in their original condition. Please contact our customer service for return instructions.
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Political Merch USA</title>
+    <link rel="stylesheet" href="styles/main.css">
+    <script src="https://js.stripe.com/v3/"></script>
+    <script>
+        const stripePublishableKey = '<%= stripePublishableKey %>';
+    </script>
+</head>
+
+<body>
+    <div class="header">
+        <h1>Political Merch</h1>
+        <span class="flag">🇺🇸</span>
+    </div>
+    <h2 id="releaseHeading">🚨<span class="highlight">New</span> <span class="white-text">Release</span><span class="black-text">.</span> <span class="highlight">Limited</span> <span class="white-text">Items</span> 🚨</h2>
+    <div id="currentRelease" class="main-image-container">
+        <!-- Current release content will be dynamically inserted here -->
+    </div>
+    <div class="size-buttons">
+        <button>XS</button>
+        <button>S</button>
+        <button>M</button>
+        <button>L</button>
+        <button>XL</button>
+    </div>
+    <div class="pay-button">
+        <button id="payNowBtn">Buy Now</button>
+        <span id="liveData">Items Left: <span id="itemsLeft">10</span>/100</span>
+    </div>
+    <h3>Recent Releases 👇🏻</h3>
+    <div id="recentReleases" class="recent-releases">
+        <!-- Recent releases will be dynamically inserted here -->
+    </div>
+    <button class="join-community">Join Our Community</button>
+    
+    <!-- <div class="faq-section">
+        <h3>F&Qs</h3>
+        <div class="faq-item">
+            <div class="faq-question">How long does shipping take?</div>
+            <div class="faq-answer">We typically process and ship orders within 1-3 business days. Delivery times vary depending on your location, but usually take 3-5 business days after shipping.</div>
+        </div>
+        <div class="faq-item">
+            <div class="faq-question">What is your return policy?</div>
+            <div class="faq-answer">We offer a 30-day return policy for unworn, unwashed items in their original condition. Please contact our customer service for return instructions.</div>
+        </div>
+    </div> -->
+
+    <div class="faq-section">
+        <h3 class="faq-heading">FAQs</h3>
+        <div class="faq-item">
+            <div class="faq-question">
+                How long does shipping take?
+                <span class="faq-toggle">+</span>
+            </div>
+            <div class="faq-answer">We typically process and ship orders within 1-3 business days. Delivery times vary depending on your location, but usually take 3-5 business days after shipping.</div>
+        </div>
+        <div class="faq-item">
+            <div class="faq-question">
+                What is your return policy?
+                <span class="faq-toggle">+</span>
+            </div>
+            <div class="faq-answer">We offer a 30-day return policy for unworn, unwashed items in their original condition. Please contact our customer service for return instructions.</div>
+        </div>
+    </div>
+
+    <script src="scripts/app.js"></script>
+</body>
+</html>
