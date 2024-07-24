@@ -1,14 +1,7 @@
 document.addEventListener('DOMContentLoaded', function() {
     const releases = [
         { image: "https://github.com/kingjulio8238/VLM-tests/blob/main/assets/shirt1v0.1.2.jpeg?raw=true", description: "Trump Ain't Going Anywhere", price: 29.99 },
-       // { image: "/api/placeholder/400/300", description: "Make America Great Again", price: 24.99 },
-       // { image: "/api/placeholder/400/300", description: "Freedom isn't Free", price: 27.99 },
-        // { image: "/api/placeholder/400/300", description: "Patriot's Choice", price: 26.99 },
-        // TODO: ADD MORE RELEASES
-        // { image: "assets/bow.png", description: "Make America Great Again", price: 24.99 },
-        // { image: "/api/placeholder/400/300", description: "Make America Great Again", price: 24.99 },
-        // { image: "/api/placeholder/400/300", description: "Freedom isn't Free", price: 27.99 },
-        // { image: "/api/placeholder/400/300", description: "Patriot's Choice", price: 26.99 },
+        // Other releases...
     ];
 
     let currentReleaseIndex = 0;
@@ -18,9 +11,18 @@ document.addEventListener('DOMContentLoaded', function() {
     const itemsLeftSpan = document.getElementById('itemsLeft');
     const releaseHeading = document.getElementById('releaseHeading');
     let itemsLeft = localStorage.getItem('itemsLeft') ? parseInt(localStorage.getItem('itemsLeft')) : 49;
-    // const sizeButtons = document.querySelector('.size-buttons'); // Get the size buttons container
 
-    const stripe = Stripe(stripePublishableKey);
+    let stripe;
+
+    // Fetch the Stripe publishable key and initialize Stripe
+    fetch('/config')
+        .then(response => response.json())
+        .then(config => {
+            stripe = Stripe(config.publishableKey);
+        })
+        .catch(error => {
+            console.error('Error fetching Stripe publishable key:', error);
+        });
     
     function updateCurrentRelease() {
         if (currentReleaseIndex < releases.length) {
@@ -178,8 +180,6 @@ document.addEventListener('DOMContentLoaded', function() {
             itemsLeft--;
             localStorage.setItem('itemsLeft', itemsLeft);
             itemsLeftSpan.textContent = itemsLeft;
-            // Redirect to thank you page
-            // window.location.href = 'thanks.html';
         }
     });
 
