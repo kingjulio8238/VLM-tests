@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', function() {
     const releases = [
-        { image: "https://github.com/kingjulio8238/politicalmerch/blob/main/assets/bow.png?raw=true", description: "Trump Ain't Going Anywhere", price: 29.99 },
+        { image: "https://github.com/kingjulio8238/VLM-tests/blob/main/assets/shirt1v0.1.2.jpeg?raw=true", description: "Trump Ain't Going Anywhere", price: 29.99 },
        // { image: "/api/placeholder/400/300", description: "Make America Great Again", price: 24.99 },
        // { image: "/api/placeholder/400/300", description: "Freedom isn't Free", price: 27.99 },
         // { image: "/api/placeholder/400/300", description: "Patriot's Choice", price: 26.99 },
@@ -49,7 +49,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     </div>
                 </div>
             `;
-            startCountdown(15); // Set countdown to 30 seconds
+            startCountdown(20); // Set countdown to 30 seconds
 
             payNowBtn.onclick = function() {
                 if (itemsLeft > 0) {
