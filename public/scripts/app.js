@@ -11,17 +11,17 @@ document.addEventListener('DOMContentLoaded', function() {
     const payNowBtn = document.getElementById('payNowBtn');
     const itemsLeftSpan = document.getElementById('itemsLeft');
     const releaseHeading = document.getElementById('releaseHeading');
-    let itemsLeft = localStorage.getItem('itemsLeft') ? parseInt(localStorage.getItem('itemsLeft')) : 80;
-    localStorage.setItem('itemsLeft', 100);
+    // let itemsLeft = localStorage.getItem('itemsLeft') ? parseInt(localStorage.getItem('itemsLeft')) : 80;
+    // localStorage.setItem('itemsLeft', 100);
 
-    // Initialize itemsLeft to 100 if not set in localStorage
-    // let itemsLeft = localStorage.getItem('itemsLeft');
-    // if (itemsLeft === null) {
-    //     itemsLeft = 100;
-    //     localStorage.setItem('itemsLeft', itemsLeft);
-    // } else {
-    //     itemsLeft = parseInt(itemsLeft);
-    // }
+    let itemsLeft = localStorage.getItem('itemsLeft');
+    if (itemsLeft === null) {
+        itemsLeft = 100;
+        localStorage.setItem('itemsLeft', itemsLeft);
+    } else {
+        itemsLeft = parseInt(itemsLeft);
+    }
+
 
     let stripe;
 
