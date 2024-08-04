@@ -1,6 +1,7 @@
 document.addEventListener('DOMContentLoaded', function() {
     const releases = [
         { image: "https://github.com/kingjulio8238/VLM-tests/blob/main/assets/shirt1v0.1.2.jpeg?raw=true", description: "Trump Ain't Going Anywhere", price: 29.99 },
+        { image: "https://github.com/kingjulio8238/VLM-tests/blob/main/assets/shirt1v0.1.2.jpeg?raw=true", description: "Trump test", price: 29.99 },
         // Other releases...
     ];
 
@@ -10,7 +11,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const payNowBtn = document.getElementById('payNowBtn');
     const itemsLeftSpan = document.getElementById('itemsLeft');
     const releaseHeading = document.getElementById('releaseHeading');
-    let itemsLeft = localStorage.getItem('itemsLeft') ? parseInt(localStorage.getItem('itemsLeft')) : 49;
+    let itemsLeft = localStorage.getItem('itemsLeft') ? parseInt(localStorage.getItem('itemsLeft')) : 80;
 
     let stripe;
 
@@ -23,7 +24,7 @@ document.addEventListener('DOMContentLoaded', function() {
         .catch(error => {
             console.error('Error fetching Stripe publishable key:', error);
         });
-    
+
     function updateCurrentRelease() {
         if (currentReleaseIndex < releases.length) {
             //sizeButtons.style.display = 'flex'; // TODO
@@ -35,7 +36,7 @@ document.addEventListener('DOMContentLoaded', function() {
             // payNowBtn.onclick = function() {
             //     window.location.href = 'thanks.html'; // Original buying link as normal
             // };
-            
+
             const release = releases[currentReleaseIndex];
             currentReleaseElement.innerHTML = `
                 <div class="main-image-wrapper">
@@ -51,7 +52,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     </div>
                 </div>
             `;
-            startCountdown(20); // Set countdown to 30 seconds
+            startCountdown(200); // Set countdown to 30 seconds
 
             payNowBtn.onclick = function() {
                 if (itemsLeft > 0) {
@@ -62,7 +63,7 @@ document.addEventListener('DOMContentLoaded', function() {
             };
         } else {
             // Modified functionality when there are no releases
-            //sizeButtons.style.display = 'none';  
+            //sizeButtons.style.display = 'none';
             // releaseHeading.style.display = 'none';
             // itemsLeftSpan.parentNode.style.display = 'none'; // Hide the "Items Left" display
             // payNowBtn.classList.add('button-large-centered'); // Apply larger, centered styling
@@ -127,9 +128,9 @@ document.addEventListener('DOMContentLoaded', function() {
         const countdownElement = document.getElementById('countdown');
         const mainImage = document.querySelector('.main-image');
         const mainImageOverlay = document.querySelector('.main-image-overlay');
-    
+
         let timeLeft = duration;
-    
+
         function updateCountdown() {
             if (timeLeft < 0) {
                 clearInterval(timerInterval);
@@ -141,12 +142,12 @@ document.addEventListener('DOMContentLoaded', function() {
                 const hours = Math.floor(timeLeft / 3600);
                 const minutes = Math.floor((timeLeft % 3600) / 60);
                 const seconds = timeLeft % 60;
-    
+
                 countdownElement.textContent = `${String(hours).padStart(2, '0')}:${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`;
                 timeLeft--;
             }
         }
-    
+
         const timerInterval = setInterval(updateCountdown, 1000);
         updateCountdown();
     }
@@ -160,7 +161,7 @@ document.addEventListener('DOMContentLoaded', function() {
             <p>${release.description}</p>
         `;
         recentReleasesElement.appendChild(recentReleaseItem);
-    
+
         currentReleaseIndex++;
         updateCurrentRelease();
     }
@@ -169,7 +170,7 @@ document.addEventListener('DOMContentLoaded', function() {
     //     if (itemsLeft > 0) {
     //         itemsLeft--;
     //         itemsLeftSpan.textContent = itemsLeft;
-            
+
     //         // Redirect to thank you page
     //         window.location.href = 'thanks.html';
     //     }
